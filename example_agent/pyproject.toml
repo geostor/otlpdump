@@ -1,0 +1,15 @@
+[project]
+name = "example-agent"
+version = "0.1.0"
+description = "Minimal LangChain agent auto-instrumented with OpenTelemetry"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dotenv>=0.9.9",
+    "langchain-openai>=1.0",
+    "langsmith[otel]",
+    "opentelemetry-distro>=0.66b1",
+    "opentelemetry-exporter-otlp>=1.45.1",
+    "opentelemetry-instrumentation-httpx==0.66b1",
+    "opentelemetry-instrumentation-openai-v2>=2.4b0",
+]

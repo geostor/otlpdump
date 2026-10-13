@@ -1,1 +1,5 @@
 /target
+
+# example_agent (Python)
+/example_agent/.venv/
+__pycache__/
