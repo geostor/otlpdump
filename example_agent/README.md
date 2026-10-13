@@ -18,6 +18,13 @@ export OPENAI_API_KEY=sk-...
 uv run --env-file .env opentelemetry-instrument python main.py
 ```
 
+A helper script is also available with:
+```sh
+cd example_agent
+export OPENAI_API_KEY=sk-...
+./run.sh
+```
+
 The spans show up as JSON lines in the otlpdump output.
 
 ## What gets traced
