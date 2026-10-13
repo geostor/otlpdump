@@ -7,5 +7,5 @@ load_dotenv()
 prompt = ChatPromptTemplate.from_template("Tell me a joke about {topic}")
 model = ChatOpenAI()
 chain = prompt | model
-result = chain.invoke({"topic": "programming"})
+result = chain.invoke({"topic": "parenting"})
 print(result.content)

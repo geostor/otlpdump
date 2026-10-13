@@ -1,13 +1,13 @@
 # example_agent
 
-A minimal LangChain app that sends traces to [otlpdump](../README.md) using OpenTelemetry zero-code auto-instrumentation. `main.py` has no tracing code; everything is configured with environment variables in [.env](.env).
+A minimal LangChain app that sends traces to [otlpdump](../../crates/otlpdump/README.md) using OpenTelemetry zero-code auto-instrumentation. `main.py` has no tracing code; everything is configured with environment variables in [.env](.env).
 
 ## Run
 
 Start otlpdump from the repo root:
 
 ```sh
-cargo run --release
+cargo run --release -p otlpdump
 ```
 
 Then run the agent:

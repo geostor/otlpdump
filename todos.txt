@@ -1,0 +1,3 @@
+otlpcost - group genai calls by provider/model, time window, or trace; sum input/output tokens and estimate spend from a configurable price table. Handle cached and reasoning tokens separately where present, and label totals as estimates because pricing and telemetry conventions vary.
+
+otlptop - summary stats over a capture file: request rate, error rate, p50/p95 latency, token throughput, and busiest models or services, optionally bucketed by time (--interval 1m). Maybe rename to otlpstats.

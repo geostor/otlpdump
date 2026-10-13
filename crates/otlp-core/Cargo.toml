@@ -1,0 +1,12 @@
+[package]
+name = "otlp-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+clap.workspace = true
+humantime.workspace = true
+opentelemetry-proto.workspace = true
+regex.workspace = true
+serde.workspace = true
+serde_json.workspace = true

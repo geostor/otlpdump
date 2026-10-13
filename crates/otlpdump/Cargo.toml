@@ -1,0 +1,11 @@
+[package]
+name = "otlpdump"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+opentelemetry-proto.workspace = true
+prost.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tiny_http.workspace = true
