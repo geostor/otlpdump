@@ -32,6 +32,9 @@ cargo install --path crates/otlpdump
 cargo install --path crates/otlpfind
 ```
 
-## Example
+## Examples
 
-[examples/example_agent](examples/example_agent/README.md) is a small LangChain app that sends traces to otlpdump.
+Two small agents in `examples/` send traces to otlpdump:
+
+- [examples/langchain_agent](examples/langchain_agent/README.md): a LangChain agent
+- [examples/strands_agent](examples/strands_agent/README.md): a Strands agent

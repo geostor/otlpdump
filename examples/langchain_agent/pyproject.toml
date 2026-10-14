@@ -1,11 +1,12 @@
 [project]
-name = "example-agent"
+name = "langchain-agent"
 version = "0.1.0"
 description = "Minimal LangChain agent auto-instrumented with OpenTelemetry"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "dotenv>=0.9.9",
+    "langchain>=1.0",
     "langchain-openai>=1.0",
     "langsmith[otel]",
     "opentelemetry-distro>=0.66b1",

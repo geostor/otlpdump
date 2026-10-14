@@ -1,6 +1,7 @@
 /target
 
-# examples/example_agent (Python)
-/examples/example_agent/.venv/
+# examples (Python)
+/examples/*/.venv/
+/examples/*/dist/
 __pycache__/
 *.egg-info/

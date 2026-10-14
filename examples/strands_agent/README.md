@@ -1,6 +1,6 @@
-# example_agent
+# strands_agent
 
-A minimal LangChain app that sends traces to [otlpdump](../../crates/otlpdump/README.md) using OpenTelemetry zero-code auto-instrumentation. `main.py` has no tracing code; everything is configured with environment variables in [.env](.env).
+A minimal [Strands](https://strandsagents.com) agent with two tools (`get_current_time` and `add`) that sends traces to [otlpdump](../../crates/otlpdump/README.md). Strands has OpenTelemetry tracing built in, and `opentelemetry-instrument` sets up the exporter, so `main.py` has no tracing code. Everything is configured with environment variables in [.env](.env).
 
 ## Run
 
@@ -13,14 +13,14 @@ cargo run --release -p otlpdump
 Then run the agent:
 
 ```sh
-cd example_agent
+cd examples/strands_agent
 export OPENAI_API_KEY=sk-...
 uv run --env-file .env opentelemetry-instrument python main.py
 ```
 
 A helper script is also available with:
 ```sh
-cd example_agent
+cd examples/strands_agent
 export OPENAI_API_KEY=sk-...
 ./run.sh
 ```
@@ -29,8 +29,7 @@ The spans show up as JSON lines in the otlpdump output.
 
 ## What gets traced
 
-- **LangChain**: chain and LLM spans from LangSmith's OpenTelemetry integration (`LANGSMITH_OTEL_ENABLED`)
-- **OpenAI**: GenAI spans from `opentelemetry-instrumentation-openai-v2`, including prompt and completion content
+- **Strands**: agent, event loop cycle, model, and tool spans from Strands' built-in tracing, including prompts, completions, and token usage. Every span in a session has a `session.id` attribute.
 - **HTTP**: outgoing `httpx` requests to the OpenAI API
 
 ## Configuration
@@ -43,5 +42,5 @@ To change any setting, edit `.env`:
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | `http/protobuf`; the distro defaults to gRPC otherwise |
 | `OTEL_EXPORTER_OTLP_HEADERS` | Add one if your backend needs auth, e.g. `api-key=...` |
 | `OTEL_METRICS_EXPORTER` / `OTEL_LOGS_EXPORTER` | Set to `otlp` to also send metrics and logs |
-| `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | Set to `false` to leave prompts and completions out of spans |
-| `LANGSMITH_OTEL_ONLY` | Keeps LangChain traces in OTel only, so nothing goes to the LangSmith API |
+| `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | `threading` is turned off because Strands instruments it itself |
+| `OTEL_SEMCONV_STABILITY_OPT_IN` | `gen_ai_latest_experimental` makes Strands use the latest GenAI semantic conventions |
