@@ -1,7 +1,2 @@
 /target
-
-# examples (Python)
-/examples/*/.venv/
-/examples/*/dist/
-__pycache__/
-*.egg-info/
+*.jsonl
